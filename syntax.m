@@ -27,7 +27,7 @@
         NSArray *tmp = compositeArray[i];
         for(NSString *elem in tmp){
             NSLog(@"element:%@",elem);
-        }
+        }//枚举方式
     }
     
         
