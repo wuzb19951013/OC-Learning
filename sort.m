@@ -32,14 +32,25 @@ NSInteger sortInt(id num1,id num2,void *context)
     }
 }
 
+NSInteger sortStr(id str1,id str2,void *context){
+    if(*(BOOL *)context==YES){//第三个参数为真则升序
+        return [str1 localizedCaseInsensitiveCompare:str2];
+    }
+    return [str2 localizedCaseInsensitiveCompare:str1];//反之为降序
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
+//         insert code here...
         NSArray *numbers=@[@4,@8,@6,@1,@15,@7,@9];
-        
         BOOL orderUP=NO;
         NSArray *sortNums=[numbers sortedArrayUsingFunction:sortInt context:&orderUP];
         NSLog(@"%@",sortNums);
+        
+        NSArray *strs=@[@"Micro",@"Face",@"apple",@"IBM"];
+        BOOL orderUp=NO;
+        NSArray *sortStrs=[strs sortedArrayUsingFunction:sortStr context:&orderUp];
+        NSLog(@"%@",sortStrs);
     }
     return 0;
 }
