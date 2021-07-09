@@ -23,7 +23,7 @@
 
 @end
 
-//手动释放，删除autoreleasepool，complier sources 改.m文件为-fno-objc-arc
+//手动释放，删除autoreleasepool，build phases 中complier sources 改.m文件为-fno-objc-arc
 //使用autoreleasepool自动引用计数则不需要release和retain，，不需要时对象设为nil，将释放自动调用类的dealloc，释放内存
 int main(int argc, const char * argv[]) {
     GreetingClass *greet=[[GreetingClass alloc]init];
